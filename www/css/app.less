@@ -1,0 +1,80 @@
+body {
+  font-siz: 13px;
+}
+
+i:hover {
+  cursor: pointer;
+}
+
+#app {
+  padding: 0 20px 20px;
+  background-color: #FFFFFF;
+}
+
+@media (max-width: 767px) {
+  body {
+    padding: 0;
+  }
+}
+
+/* Hide angular elements in loading */
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+
+.process {
+  font-size: 1em;
+
+  .name {
+    font-weight: bold;
+  }
+
+  .description {
+    display: block;
+//    color: #888888;
+    font-style: italic;
+    font-size: 0.8em;
+    margin-bottom: 10px;
+    border-bottom: 1px dashed #bbbbbb;
+    padding-bottom: 3px;
+  }
+
+  button.action {
+      padding: 0px 12px;
+      margin-bottom: 10px;
+  }
+
+  .tickets-container {
+    min-height: 40px;
+  }
+
+  .ticket {
+    margin-bottom: 10px;
+    font-size: 0.9em;
+
+    .panel-heading {
+      padding: 3px 5px;
+      h3 {
+        font-size: 1em;
+        cursor: pointer;
+      }
+    }
+
+    .panel-body {
+      font-size: 1em;
+      padding: 5px;
+    }
+
+    .panel-footer {
+      font-size: 0.9em;
+      padding: 5px;
+      text-align: right;
+      font-style: italic;
+    }
+  }
+}
+
+/* Fix bug datepicker */
+.datepicker {
+  z-index: 1500;
+}

@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Kanban</title>
+
+    <!-- Global CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="/css/jquery-ui-1.10.3.custom.min.css" type="text/css" />
+    <link rel="stylesheet/less" href="/css/app.less" type="text/css" />
+    <script src="/vendor/less/less-1.4.1.min.js"></script>
+    <!-- /Global CSS -->
+
+    <script data-main="/js/main" src="/vendor/require/require.js" type="text/javascript"></script>
+</head>
+<body ng-controller="GlobalCtrl">
+    <img ng-hide="loaded" class="col-md-offset-4 col-md-4" src="/img/loading.gif" alt=""/>
+
+    <div id="app" class="container-fluid ng-cloak">
+        <div ng-include=" '/partials/common/_header.html' "></div>
+
+        <div ng-if="flashMessage.content" class="alert alert-{{ flashMessage.type }}">{{ flashMessage.content }}</div>
+
+        <div ui-view></div>
+
+        <div ng-include=" '/partials/common/_footer.html' "></div>
+    </div>
+</body>
+</html>

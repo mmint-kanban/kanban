@@ -1,0 +1,40 @@
+<!-- Modal -->
+<div class="modal fade" ng-controller="ProcessModalCtrl" id="process_modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <form ng-submit="save()" role="form">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Process</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="form-group col col-md-2">
+                            <label for="class">Order</label>
+                            <input ng-model="currentProcess.order" class="form-control" id="order"/>
+                        </div>
+                        <div class="form-group col col-md-7">
+                            <label for="name">Name</label>
+                            <input ng-model="currentProcess.name" id="name" class="form-control" type="text"/>
+                        </div>
+                        <div class="form-group col col-md-3">
+                            <label for="class">Class</label>
+                            <select ng-model="currentProcess.class" class="form-control" id="class" ng-options="c for c in allowed_classes"></select>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col col-md-12">
+                            <label for="description">Description</label>
+                            <input ng-model="currentProcess.description" id="description" class="form-control" type="text"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save changes</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </form>
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

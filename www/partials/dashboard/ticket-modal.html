@@ -1,0 +1,65 @@
+<!-- Modal -->
+<div class="modal fade" ng-controller="TicketModalCtrl" id="ticket_modal" tabindex="-1" role="dialog" aria-hidden="true"
+     xmlns="http://www.w3.org/1999/html">
+    <div class="modal-dialog">
+        <form ng-submit="save()" role="form">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Ticket</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="form-group col col-md-12">
+                            <label for="title">Title</label>
+                            <input ng-model="currentTicket.title" type="text" class="form-control" id="title" />
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col col-md-12">
+                            <label for="description">Description</label>
+                            <textarea ng-model="currentTicket.description" id="description" class="form-control" type="text"/></textarea>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col col-md-12">
+                            <label>Deadline</label>
+                            <div class="input-group">
+                                <input id="deadline"
+                                       ui-date="{dateFormat: 'd/m/yy'}"
+                                       ui-date-format="d/m/yy"
+                                       ng-model="currentTicket.deadline"
+                                       class="form-control"
+                                       type="text"
+                                >
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div ng-if="currentTicket.createdAt" class="row">
+                        <div class="col col-md-12">
+                            <div class="pull-right text-muted">
+                                <i>Created at: {{ currentTicket.createdAt|formatDateTime }}</i>
+                            </div>
+                        </div>
+                    </div>
+                    <div ng-if="currentTicket.modifiedAt" class="row">
+                        <div class="col col-md-12">
+                            <div class="pull-right text-muted">
+                                <i>Modified at: {{ currentTicket.modifiedAt|formatDateTime }}</i>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save changes</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </form>
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

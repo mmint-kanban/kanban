@@ -1,0 +1,42 @@
+<div class="row" ng-controller="DashboardCtrl"
+    ng-init="processe_bks=[
+        { id: 1, name: 'Backlog', class: 'default' },
+        { id: 2, name: 'In progress', class: 'primary' },
+        { id: 3, name: 'Completed', class: 'danger' },
+        { id: 4, name: 'Feedback', class: 'warning' },
+        { id: 5, name: 'Done', class: 'success' }
+    ]"
+>
+    <div class="process col-md-2"></div>
+
+    <div ng-if="loading" class="process col-md-2"><img src="/img/small-loading.gif" alt=""/></div>
+
+    <div ng-repeat="process in processes" class="process col-md-2">
+        <div class="name">{{ process.name }}</div>
+        <div class="description text-{{ process.class }}">{{ process.description }}</div>
+
+        <button ng-click="newTicket(process)" ng-if="process.order==1" class="btn btn-block action">
+            <i class="glyphicon glyphicon-plus"></i>
+        </button>
+        <div ng-include=" '/partials/dashboard/ticket-modal.html' "></div>
+
+        <div class="tickets-container"
+            data-process-class="{{ process.class }}"
+            data-process-id="{{ process._id }}"
+        >
+            <div ng-repeat="ticket in process.tickets" class="ticket panel panel-{{ process.class }}">
+                <div class="handler panel-heading">
+                    <h3 class="panel-title">{{ ticket.title }}<i ng-click="deleteTicket(process, ticket)" class="glyphicon glyphicon-remove pull-right"></i></h3>
+                </div>
+                <div class="panel-body">
+                    <i ng-click="editTicket(ticket)" class="glyphicon glyphicon-edit pull-right"></i>
+                    {{ ticket.description }}
+                </div>
+                <div class="panel-footer">
+                    <div>Created: {{ ticket.createdAt|formatDateTime }}</div>
+                    <div>Modified: {{ ticket.modifiedAt|formatDateTime }}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
